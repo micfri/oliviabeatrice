@@ -32,10 +32,12 @@ body {
   font: white;
 }
 
-.Footer h1 {
+.Footer {
   color: white;
-
+  text-align: left;
 }
+
+
 
 .CategoryCover h3 {
   writing-mode: vertical-rl;
