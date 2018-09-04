@@ -50,8 +50,16 @@ class Footer extends Component {
     return (
       <div className="Footer col-lg-12">
         <div className="row col-lg-12 footerContainer center-xs">
-          <h1>Footer</h1>
-
+          <div className="col-lg-3">
+          </div>
+          <div className="col-lg-3 start-xs">
+            <p>Olivia Fritiofsson</p>
+            <p>Smedjegatan 2</p>
+          </div>
+          <div className="col-lg-3">
+          </div>
+          <div className="col-lg-3">
+          </div>
         </div>
       </div>
 
