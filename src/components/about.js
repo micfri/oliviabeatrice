@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
-import * as contentful from 'contentful'
+import * as contentful from 'contentful';
+import resources from '../resources.js';
+import about from './about.js';
+import photo from './photo.js';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import film from './film.js';
+import brand from './brand.js'
+import * as Markdown from 'react-markdown'
+
 
 class About extends Component {
 
@@ -10,13 +18,16 @@ class About extends Component {
       error: null,
       isLoaded: false,
       items: [],
-      logo_url: null,
+      page_title: [],
+      text_1: [],
+      text_2: [],
+      page_picture: []
     };
   }
 
   client = contentful.createClient({
-    space: '2potjglsqrdx',
-    accessToken: 'cd2fbf03d3690b9b4adfeeeec4f47778c372155185703ed9ae2741d9aed4ad38'
+    space: resources.data.space,
+    accessToken: resources.data.accessToken
   })
 
 
@@ -33,14 +44,26 @@ class About extends Component {
       })
     })
 
-    this.client.getAsset('5wq6J87LoWqgQ0A62kWIQ2')
-      .then((asset) => {
-        console.log(asset);
-        this.setState({logo_url: asset.fields.file.url});
-        console.log(this.state.logo_url);
-      })
-      .catch(console.error)
 
+
+      this.client.getEntry('5eYkbxPQjmEaGSIYa0yoea')
+        .then((entry) => {
+          this.setState({page_title: entry.fields.pageTitle});
+        })
+        .catch(console.error)
+
+      this.client.getAsset('5HIDZ64u6QSeW0Kg2ou00o')
+        .then((asset) => {
+          this.setState({page_picture: asset.fields.file.url});
+        })
+        .catch(console.error)
+
+      this.client.getEntry('5HWQmGntCwu40SYKq6woaQ')
+        .then((entry) => {
+          this.setState({text_1: entry.fields.text1,
+          text_2: entry.fields.text3});
+        })
+        .catch(console.error)
 
   }
 
@@ -51,8 +74,10 @@ class About extends Component {
       <div className="About">
         <div className="col-lg-12">
           <div className="row center-xs">
-            <div className="col-lg-6">
-              <h1>About</h1>
+            <div className="col-lg-6 center-xs row">
+              <Markdown source={this.state.text_1}></Markdown>
+              <div className="bocks-pic col-xs-6 center-xs" ><img alt='' class="logo" src={this.state.page_picture}/></div>
+              <Markdown source={this.state.text_2}></Markdown>
             </div>
           </div>
         </div>

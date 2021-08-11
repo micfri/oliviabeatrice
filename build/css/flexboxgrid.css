@@ -261,6 +261,11 @@
 
   }
 
+
+  .column-sm {
+    flex-direction: column;
+  }
+
   .col-sm,
   .col-sm-1,
   .col-sm-2,
@@ -475,6 +480,10 @@
   .container {
     width: 100%;
   }
+
+
+
+
 
   .col-md,
   .col-md-1,

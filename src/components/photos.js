@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import * as contentful from 'contentful';
 import resources from '../resources.js';
 import CategoryCover from './category-cover.js';
+import Zoom from 'react-reveal/Zoom';
+import Fade from 'react-reveal/Fade';
+import * as Markdown from 'react-markdown';
+
+
+
 
 
 class Photos extends Component {
@@ -74,10 +80,9 @@ class Photos extends Component {
     return (
       <div className="Photos">
         <div className="row center-xs">
-          <p>{this.state.page_text}</p>
+          <Markdown source={this.state.page_text}></Markdown>
         </div>
-
-        <ul className="photoCategories center-xs">{categoryList}</ul>
+        <Fade delay={1000}><ul className="photoCategories center-xs">{categoryList}</ul></Fade>
       </div>
 
     );

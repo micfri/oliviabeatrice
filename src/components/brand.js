@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import * as contentful from 'contentful'
+import * as contentful from 'contentful';
+import * as Markdown from 'react-markdown';
+
+
 
 class Brand extends Component {
 
@@ -35,13 +38,6 @@ class Brand extends Component {
       })
     })
 
-    this.client.getAsset('5wq6J87LoWqgQ0A62kWIQ2')
-      .then((asset) => {
-        console.log(asset);
-        this.setState({logo_url: asset.fields.file.url});
-        console.log(this.state.logo_url);
-      })
-      .catch(console.error)
 
       this.client.getEntry('3w7UD2XnXOWkE2Oow6momy')
         .then((entry) => {
@@ -60,7 +56,7 @@ class Brand extends Component {
         <div className="col-lg-12">
           <div className="row center-xs">
             <div className="col-lg-6">
-              <h2>{this.state.page_text}</h2>
+              <Markdown source={this.state.page_text}></Markdown>
             </div>
           </div>
         </div>

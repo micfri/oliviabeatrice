@@ -48,15 +48,18 @@ class Footer extends Component {
 
   render() {
     return (
-      <div className="Footer col-lg-12">
-        <div className="row col-lg-12 footerContainer center-xs">
-          <div className="col-lg-3">
+      <div className="Footer col-xs-12">
+        <div className="row col-xs-12 footerContainer center-xs">
+          <div className="col-xs-3">
           </div>
-          <div className="col-lg-3 start-xs">
-            <p>Olivia Fritiofsson</p>
+          <div className="col-lg-3 start-xs col-xs-12">
+            <p>Olivia Beatrice</p>
             <p>Smedjegatan 2</p>
+            <p>285 31  Markaryd</p>
           </div>
-          <div className="col-lg-3">
+          <div className="col-lg-3 start-xs col-xs-12">
+            <p>Tel: +46 (0) 730 88 52 30</p>
+            <p>E-mail: olivia@oliviabeatrice.se</p>
           </div>
           <div className="col-lg-3">
           </div>

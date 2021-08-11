@@ -41,7 +41,6 @@ class Header extends Component {
     this.client.getAsset('5wq6J87LoWqgQ0A62kWIQ2')
       .then((asset) => {
         this.setState({logo_url: asset.fields.file.url});
-        console.log(this.state.logo_url);
       })
       .catch(console.error)
   }
@@ -55,21 +54,25 @@ class Header extends Component {
             <div className="col-lg-3">
               <div className="headerLogo"><a href="/#/"><img className="logo" alt="ob-logo" src={this.state.logo_url}></img></a></div>
             </div>
-            <div className="row col-lg-9 end-xs">
-              <ul className="headerMenu row end-xs">
-                <li className="headerMenuItemSmall row end-xs">
+            <div className="col-lg-6"> <p> </p></div>
+            <div className="row col-lg-3 end-xs">
+              <ul id="lg-100" className="headerMenu row end-xs show-md">
+                <li className="headerMenuItem row start-xs">
                   <img alt='bock' class="bock" src={require('../img/Bock_korall.png')}/>
                   <a href="/#/photo/">Foto</a>
                 </li>
-                <li className="headerMenuItemSmall row center-xs">
+                <li className="headerMenuItem row start-xs">
                   <img alt='bock' class="bock" src={require('../img/Bock_korall.png')}/>
                   <a href="/#/film/">Film</a>
                 </li>
-                <li className="headerMenuItemLarge row center-xs">
-                  <img alt='bock' class="bockLarge" src={require('../img/Bock_korall.png')}/>
-                  <a href="/#/brand/">Varumärkesskapande</a>
+                <li className="headerMenuItem row start-xs">
+                  <img alt='bock' class="bock" src={require('../img/Bock_korall.png')}/>
+                  <a href="/#/brand/">Affärsutveckling</a>
                 </li>
-
+                <li className="headerMenuItem row start-xs">
+                  <img alt='bock' class="bock" src={require('../img/Bock_korall.png')}/>
+                  <a href="/#/about/">Om mig</a>
+                </li>
               </ul>
             </div>
           </div>
@@ -80,8 +83,10 @@ class Header extends Component {
                 <div className="pageTitle">
                   <Switch>
                     <Route path='/photo/' render={(props) => <Title {...props} page="Foto" />} />
-                    <Route path='/webb/' render={(props) => <Title {...props} page="Film" />}/>
-                    <Route path='/brand/' render={(props) => <Title {...props} page="Varumärkesskapande" />}/>
+                    <Route path='/film/' render={(props) => <Title {...props} page="Film" />}/>
+                    <Route path='/brand/' render={(props) => <Title {...props} page="Affärsutveckling" />}/>
+                    <Route path='/about/' render={(props) => <Title {...props} page="Om mig" />}/>
+
                   </Switch>
                 </div>
               </div>

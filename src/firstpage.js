@@ -65,10 +65,11 @@ class Firstpage extends Component {
               </div>
 
               <div className="row center-xs">
-                <ul className="firstPageMenu">
-                  <li><a href="/#/photo/">Foto</a></li>
+                <ul className="firstPageMenu column-sm center-xs">
+                  <li className=""><a href="/#/photo/">Foto</a></li>
                   <li><a href="/#/film/">Film</a></li>
-                  <li><a href="/#/brand/">Varumärkesskapande</a></li>
+                  <li><a href="/#/brand/">Affärsutveckling</a></li>
+                  <li><a href="/#/about/">Om mig</a></li>
                 </ul>
               </div>
             </div>

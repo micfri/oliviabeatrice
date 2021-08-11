@@ -59,6 +59,7 @@ class Main extends Component {
             <Route path='/photo/' component={photo}/>
             <Route path='/film/' component={film}/>
             <Route path='/brand/' component={brand}/>
+            <Route path='/about/' component={about}/>
           </Switch>
       </div>
     );

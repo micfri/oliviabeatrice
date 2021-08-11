@@ -6,9 +6,16 @@ import * as contentful from 'contentful';
 import Header from './components/header.js';
 import Main from './components/main.js';
 import Footer from './components/footer.js';
+import Fade from 'react-reveal/Fade';
+import { slide as Menu } from 'react-burger-menu'
+
 
 class Regularpage extends Component {
 
+  showSettings (event) {
+   event.preventDefault();
+
+  }
 
   constructor(props) {
     super(props);
@@ -17,6 +24,7 @@ class Regularpage extends Component {
       isLoaded: false,
       items: [],
       logo_url: null,
+      menuOpen: false
     };
   }
 
@@ -47,18 +55,39 @@ class Regularpage extends Component {
 
   }
 
+  handleStateChange (state) {
+    this.setState({menuOpen: state.isOpen})
+  }
+
+  closeMenu () {
+    this.setState({menuOpen: false})
+  }
 
   render() {
     return (
-      <div className="Regularpage">
-        <div className="container fullheight">
-          <div className="row fullheight center-xs col-lg-12">
-            <Header> </Header>
-            <Main> </Main>
-            <Footer> </Footer>
+      <Fade delay={1000}>
+        <div className="Regularpage">
+          <div className="container fullheight">
+            <div className="row fullheight center-xs col-lg-12">
+              <div id="lg-0">
+
+                <Menu isOpen={this.state.menuOpen}
+          onStateChange={(state) => this.handleStateChange(state)} right noOverlay >
+                  <a onClick={() => this.closeMenu()} id="Foto" className="menu-item" href="/#/photo/">Foto</a>
+                  <a onClick={() => this.closeMenu()} id="Film" className="menu-item" href="/#/film/">Film</a>
+                  <a onClick={() => this.closeMenu()} id="Affärsutveckling" className="menu-item" href="/#/brand/">Affärsutveckling</a>
+                  <a onClick={() => this.closeMenu()} id="Om-mig" className="menu-item" href="/#/about/">Om mig</a>
+                </Menu>
+
+              </div>
+                <Header> </Header>
+                <Main> </Main>
+                <Footer> </Footer>
+            </div>
           </div>
         </div>
-      </div>
+      </Fade>
+
     );
   }
 }
