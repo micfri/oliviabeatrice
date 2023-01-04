@@ -8,7 +8,7 @@
     "react-dom": "^16.4.2",
     "react-images": "^0.5.19",
     "react-reveal": "^1.2.2",
-    "react-scripts": "1.1.4",
+    "react-scripts": "5.0.1",
     "video-react": "^0.13.0"
   },
   "scripts": {
